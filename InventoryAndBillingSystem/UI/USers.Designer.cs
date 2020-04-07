@@ -360,6 +360,7 @@
             this.boxSearch.ReadOnly = true;
             this.boxSearch.Size = new System.Drawing.Size(629, 29);
             this.boxSearch.TabIndex = 37;
+            this.boxSearch.TextChanged += new System.EventHandler(this.boxSearch_TextChanged_1);
             // 
             // lblSearch
             // 

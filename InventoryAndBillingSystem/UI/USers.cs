@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -91,7 +92,7 @@ namespace InventoryAndBillingSystem.UI
                     where (x.FirstName.Contains(search) || x.LastName.Contains(search) || x.UserName.Contains(search))
                     select x;
 
-                IDbCommand cmd = System.Data.Linq.DataContext.db.Users.GetCommand(values);
+                IDbCommand cmd = new EntityCommand();   //System.Data.Linq.DataContext.db.Users.GetCommand(values);
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 adapter.SelectCommand = (SqlCommand)cmd;
                 DataTable dt = new DataTable();
@@ -109,6 +110,11 @@ namespace InventoryAndBillingSystem.UI
                 }
               
             }
+        }
+
+        private void boxSearch_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
