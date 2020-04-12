@@ -38,7 +38,7 @@
             this.panelFooter = new System.Windows.Forms.Panel();
             this.labelFooter = new System.Windows.Forms.Label();
             this.labelUser = new System.Windows.Forms.Label();
-            this.labelName = new System.Windows.Forms.Label();
+            this.presentuser = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panelFooter.SuspendLayout();
             this.SuspendLayout();
@@ -137,22 +137,23 @@
             this.labelUser.TabIndex = 9;
             this.labelUser.Text = "User:";
             // 
-            // labelName
+            // presentuser
             // 
-            this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(84, 90);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(44, 17);
-            this.labelName.TabIndex = 10;
-            this.labelName.Text = "Victor";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.presentuser.AutoSize = true;
+            this.presentuser.Location = new System.Drawing.Point(84, 90);
+            this.presentuser.Name = "presentuser";
+            this.presentuser.Size = new System.Drawing.Size(44, 17);
+            this.presentuser.TabIndex = 10;
+            this.presentuser.Text = "Victor";
+            this.presentuser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.presentuser.Click += new System.EventHandler(this.labelName_Click);
             // 
             // UserDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1544, 719);
-            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.presentuser);
             this.Controls.Add(this.labelUser);
             this.Controls.Add(this.labelBilling);
             this.Controls.Add(this.labelStore1);
@@ -164,6 +165,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Users Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserDashBoard_FormClosed);
+            this.Load += new System.EventHandler(this.UserDashBoard_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panelFooter.ResumeLayout(false);
@@ -185,6 +188,6 @@
         private System.Windows.Forms.Panel panelFooter;
         private System.Windows.Forms.Label labelFooter;
         private System.Windows.Forms.Label labelUser;
-        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label presentuser;
     }
 }

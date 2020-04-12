@@ -6,17 +6,20 @@ using System.Data.Entity;
 using System.Data.Entity.Core.EntityClient;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataMangement.EF;
 using DataMangement.Repository;
+using InventoryAndBillingSystem.Extensions;
 
 namespace InventoryAndBillingSystem.UI
 {
     public partial class FormUsers : Form
     {
+        private DataTable Binder { get; set; }
         public FormUsers()
         {
             InitializeComponent();
@@ -33,7 +36,6 @@ namespace InventoryAndBillingSystem.UI
             this.Close();
         }
 
-        private DbSet<User> dala { get; set; }
         private async void btnAdd_Click(object sender, EventArgs e)
         {
             var users = new User();
@@ -84,35 +86,39 @@ namespace InventoryAndBillingSystem.UI
 
         private void boxSearch_TextChanged(object sender, EventArgs e)
         {
-            var search = boxSearch.Text;
-            using (var db = new Model1())
-            {
-                var values =
-                    from x in db.Users
-                    where (x.FirstName.Contains(search) || x.LastName.Contains(search) || x.UserName.Contains(search))
-                    select x;
-
-                IDbCommand cmd = new EntityCommand();   //System.Data.Linq.DataContext.db.Users.GetCommand(values);
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                adapter.SelectCommand = (SqlCommand)cmd;
-                DataTable dt = new DataTable();
-
-                try
-                {
-                    cmd.Connection.Open();
-                    adapter.FillSchema(dt, SchemaType.Source);
-                    adapter.Fill(dt);
-                    var ase = dt;
-                }
-                finally
-                {
-                    cmd.Connection.Close();
-                }
-              
-            }
+            
         }
 
         private void boxSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            var search = boxSearch.Text;
+            using (var db = new Model1())
+            {
+                // DataSet ds = new DataSet();
+                // ds.Locale=CultureInfo.InvariantCulture;
+
+
+                //DataTable dt = ds.Tables["User"];
+                var query =
+                    from x in db.Users
+                    where (x.FirstName.Contains(search) || x.LastName.Contains(search) || x.UserName.Contains(search))
+                    select x;
+               var bind = query.ToListAsync()
+                    .Result;
+                Binder=bind.ToDataTable();
+
+                  dataUser.DataSource = Binder;
+
+                //DataTable bondTable = query.CopyToDataTable<DataRow>();
+
+                //Binder.DataSource = bondTable;
+
+
+            }
+
+        }
+
+        private void dataUser_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

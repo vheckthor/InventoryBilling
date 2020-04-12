@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InventoryAndBillingSystem.UI;
 
 namespace InventoryAndBillingSystem
 {
@@ -16,7 +17,7 @@ namespace InventoryAndBillingSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAdminDashBoard());
+            Application.Run(new LoginForm());
         }
     }
 }

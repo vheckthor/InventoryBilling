@@ -39,6 +39,8 @@
             this.labelStore = new System.Windows.Forms.Label();
             this.labelStore1 = new System.Windows.Forms.Label();
             this.labelBilling = new System.Windows.Forms.Label();
+            this.Adminlbl = new System.Windows.Forms.Label();
+            this.adminuser = new System.Windows.Forms.Label();
             this.panelFooter.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -144,11 +146,33 @@
             this.labelBilling.Text = "Billing and Inventory System";
             this.labelBilling.Click += new System.EventHandler(this.labelBilling_Click);
             // 
+            // Adminlbl
+            // 
+            this.Adminlbl.AutoSize = true;
+            this.Adminlbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Adminlbl.Location = new System.Drawing.Point(13, 85);
+            this.Adminlbl.Name = "Adminlbl";
+            this.Adminlbl.Size = new System.Drawing.Size(88, 25);
+            this.Adminlbl.TabIndex = 5;
+            this.Adminlbl.Text = "ADMIN:";
+            // 
+            // adminuser
+            // 
+            this.adminuser.AutoSize = true;
+            this.adminuser.Location = new System.Drawing.Point(119, 92);
+            this.adminuser.Name = "adminuser";
+            this.adminuser.Size = new System.Drawing.Size(51, 17);
+            this.adminuser.TabIndex = 6;
+            this.adminuser.Text = "ADMIN";
+            this.adminuser.Click += new System.EventHandler(this.adminuser_Click);
+            // 
             // FormAdminDashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1542, 607);
+            this.Controls.Add(this.adminuser);
+            this.Controls.Add(this.Adminlbl);
             this.Controls.Add(this.labelBilling);
             this.Controls.Add(this.labelStore1);
             this.Controls.Add(this.labelStore);
@@ -159,6 +183,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin DashBoard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormAdminDashBoard_FormClosed);
             this.Load += new System.EventHandler(this.FormAdminDashBoard_Load);
             this.panelFooter.ResumeLayout(false);
             this.panelFooter.PerformLayout();
@@ -182,6 +207,8 @@
         private System.Windows.Forms.Label labelStore;
         private System.Windows.Forms.Label labelStore1;
         private System.Windows.Forms.Label labelBilling;
+        private System.Windows.Forms.Label Adminlbl;
+        private System.Windows.Forms.Label adminuser;
     }
 }
 
