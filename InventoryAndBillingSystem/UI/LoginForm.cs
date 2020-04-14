@@ -76,6 +76,7 @@ namespace InventoryAndBillingSystem.UI
                         {
                             FormAdminDashBoard admin = new FormAdminDashBoard();
                             admin.user = _loginForm.Username.Trim();
+                            admin.userId = user.id;
                             admin.Show();
                             Hide();
                             break;

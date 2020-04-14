@@ -1,0 +1,6 @@
+﻿dbo.Categories
+dbo.DealCustomer
+dbo.Products
+dbo.TransactionDetails
+dbo.Transactions
+dbo.Users

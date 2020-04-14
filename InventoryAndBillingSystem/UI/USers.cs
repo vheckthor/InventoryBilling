@@ -11,8 +11,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AutoMapper;
 using DataMangement.EF;
 using DataMangement.Repository;
+using InventoryAndBillingSystem.BusinessLogic;
 using InventoryAndBillingSystem.Extensions;
 
 namespace InventoryAndBillingSystem.UI
@@ -20,6 +22,7 @@ namespace InventoryAndBillingSystem.UI
     public partial class FormUsers : Form
     {
         private DataTable Binder { get; set; }
+        public int userId { get; set; }
         public FormUsers()
         {
             InitializeComponent();
@@ -27,7 +30,22 @@ namespace InventoryAndBillingSystem.UI
 
         private void FormUsers_Load(object sender, EventArgs e)
         {
-           // dataUser.DataSource = DbContextExtensions.DataTable(, "select * from users");
+            boxSearch.Clear();
+            var search = "";
+            using (var db = new Model1())
+            {
+
+                var query =
+                    from x in db.Users
+                    where (x.FirstName.Contains(search) || x.LastName.Contains(search) || x.UserName.Contains(search))
+                    select x;
+                var bind = query.ToListAsync()
+                    .Result;
+
+                dataUser.DataSource = bind.ToDataTable();
+
+
+            }
         }
 
 
@@ -38,25 +56,57 @@ namespace InventoryAndBillingSystem.UI
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
-            var users = new User();
+            //create mapper
+            Mapper.CreateMap<UserDTO, User>();
+
+            var users = new UserDTO();
             bool tracker = false;
 
-            users.FirstName = boxFirstName.Text;
-            users.LastName = boxLastName.Text;
-            users.Email = boxEmail.Text;
-            users.Address = boxAddress.Text;
-            users.Contact = boxContact.Text;
-            users.Gender = comboBoxGender.SelectedItem.ToString();
-            users.Password = boxPassword.Text;
-            users.UserName = boxUsername.Text;
-            users.UserType = comboboxUserType.SelectedItem.ToString();
-            users.AddedDate = DateTime.Now;
-            users.AddedBy = 1;
+            try
+            {
+                users.FirstName = boxFirstName.Text;
+                users.LastName = boxLastName.Text;
+                users.Email = boxEmail.Text;
+                users.Address = boxAddress.Text;
+                users.Contact = boxContact.Text;
+                users.Gender = comboBoxGender.SelectedItem.ToString();
+                users.Password = boxPassword.Text;
+                users.UserName = boxUsername.Text;
+                users.UserType = comboboxUserType.SelectedItem.ToString();
+                users.AddedDate = DateTime.Now;
+                users.AddedBy = userId;
+
+                if 
+                (
+                    String.IsNullOrWhiteSpace(users.FirstName)||
+                    String.IsNullOrWhiteSpace(users.LastName)||
+                    String.IsNullOrWhiteSpace(users.Password)||
+                    String.IsNullOrWhiteSpace(users.UserName)||
+                    String.IsNullOrWhiteSpace(users.Email)||
+                    String.IsNullOrWhiteSpace(users.Address)||
+                    String.IsNullOrWhiteSpace(users.Contact)||
+                    String.IsNullOrWhiteSpace(users.UserType)
+
+                )
+                {
+                    MessageBox.Show("The input field cannot be empty or whitespaces");
+                    return;
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("One or more errors occured please check your entries and retry");
+                return;
+            }
+
 
 ;
             using (var db = new Model1())
             {
-                db.Users.Add(users);
+                //mapped entities
+                var userStored = Mapper.Map<User>(users);
+
+                db.Users.Add(userStored);
                 await db.SaveChangesAsync();
                 tracker = true;
             }
@@ -79,26 +129,13 @@ namespace InventoryAndBillingSystem.UI
 
         }
 
-        private void dataSet1_Initialized(object sender, EventArgs e)
-        {
-
-        }
-
-        private void boxSearch_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void boxSearch_TextChanged_1(object sender, EventArgs e)
         {
             var search = boxSearch.Text;
             using (var db = new Model1())
             {
-                // DataSet ds = new DataSet();
-                // ds.Locale=CultureInfo.InvariantCulture;
 
-
-                //DataTable dt = ds.Tables["User"];
                 var query =
                     from x in db.Users
                     where (x.FirstName.Contains(search) || x.LastName.Contains(search) || x.UserName.Contains(search))
@@ -108,10 +145,6 @@ namespace InventoryAndBillingSystem.UI
                 Binder=bind.ToDataTable();
 
                   dataUser.DataSource = Binder;
-
-                //DataTable bondTable = query.CopyToDataTable<DataRow>();
-
-                //Binder.DataSource = bondTable;
 
 
             }

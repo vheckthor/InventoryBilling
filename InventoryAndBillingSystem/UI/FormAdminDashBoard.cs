@@ -14,6 +14,7 @@ namespace InventoryAndBillingSystem
     public partial class FormAdminDashBoard : Form
     {
         public string user { get; set; }
+        public int userId { get; set; }
         public FormAdminDashBoard()
         {
             InitializeComponent();
@@ -31,13 +32,22 @@ namespace InventoryAndBillingSystem
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormUsers users = new FormUsers();
+
+            var users = new FormUsers
+            {
+                userId = userId
+            };
             users.Show();
+
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            CategoryForm category = new CategoryForm
+            {
+                userID = userId
+            };
+            category.Show();
         }
 
         private void FormAdminDashBoard_FormClosed(object sender, FormClosedEventArgs e)
@@ -51,6 +61,15 @@ namespace InventoryAndBillingSystem
         private void adminuser_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var product=new ProductFormcs
+            {
+                userID = userId
+            };
+            product.Show();
         }
     }
 }
