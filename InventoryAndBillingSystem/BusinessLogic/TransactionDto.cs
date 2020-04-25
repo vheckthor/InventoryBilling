@@ -1,0 +1,23 @@
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace InventoryAndBillingSystem.BusinessLogic
+{
+    public class TransactionDTO
+    {
+
+        public string Type { get; set; }
+
+        public decimal? GrandTotal { get; set; }
+
+        public int? DealCustomerId { get; set; }
+
+        public decimal? Tax { get; set; }
+
+        public decimal? Discount { get; set; }
+
+        public int? AddedBy { get; set; }
+
+        public DateTime? TransactionDate { get; set; }
+    }
+}

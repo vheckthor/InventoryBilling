@@ -36,5 +36,10 @@ namespace InventoryAndBillingSystem.UI
         {
 
         }
+
+        private void PurchaseAndSalesForm_Load(object sender, EventArgs e)
+        {
+            //Action occurrence when the page loads
+        }
     }
 }

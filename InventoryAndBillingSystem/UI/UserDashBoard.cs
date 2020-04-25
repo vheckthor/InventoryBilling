@@ -14,10 +14,12 @@ namespace InventoryAndBillingSystem
     public partial class UserDashBoard : Form
     {
         public string currentUser { get; set; }
+        public static string clickedValue;
         public UserDashBoard()
         {
             InitializeComponent();
         }
+
 
         private void labelName_Click(object sender, EventArgs e)
         {
@@ -41,12 +43,14 @@ namespace InventoryAndBillingSystem
         {
             PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
             openPurchaseAndSalesForm.Show();
+            clickedValue = "purchase";
         }
 
         private void salesFormsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
             openPurchaseAndSalesForm.Show();
+            clickedValue = "sales";
         }
     }
 }

@@ -79,6 +79,8 @@
     <Compile Include="BusinessLogic\DealCustomerDTO.cs" />
     <Compile Include="BusinessLogic\LoginFormDTO.cs" />
     <Compile Include="BusinessLogic\ProductDTO.cs" />
+    <Compile Include="BusinessLogic\TransactionDetailDTO.cs" />
+    <Compile Include="BusinessLogic\TransactionDTO.cs" />
     <Compile Include="BusinessLogic\UserDTO.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="UI\CategoryForm.cs">
