@@ -13,7 +13,7 @@ namespace DataMangement.EF
         [StringLength(50)]
         public string Name { get; set; }
 
-        public int? Category { get; set; }
+        public string Category { get; set; }
 
         [Column(TypeName = "text")]
         public string Description { get; set; }

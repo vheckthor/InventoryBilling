@@ -76,7 +76,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\CategoriesDTO.cs" />
+    <Compile Include="BusinessLogic\DealCustomerDTO.cs" />
     <Compile Include="BusinessLogic\LoginFormDTO.cs" />
+    <Compile Include="BusinessLogic\ProductDTO.cs" />
     <Compile Include="BusinessLogic\UserDTO.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="UI\CategoryForm.cs">
@@ -84,6 +86,12 @@
     </Compile>
     <Compile Include="UI\CategoryForm.Designer.cs">
       <DependentUpon>CategoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DealerandCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DealerandCustomerForm.Designer.cs">
+      <DependentUpon>DealerandCustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
@@ -96,6 +104,12 @@
     </Compile>
     <Compile Include="UI\ProductFormcs.Designer.cs">
       <DependentUpon>ProductFormcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PurchaseAndSalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PurchaseAndSalesForm.Designer.cs">
+      <DependentUpon>PurchaseAndSalesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\USers.cs">
       <SubType>Form</SubType>
@@ -120,11 +134,17 @@
     <EmbeddedResource Include="UI\CategoryForm.resx">
       <DependentUpon>CategoryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DealerandCustomerForm.resx">
+      <DependentUpon>DealerandCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\ProductFormcs.resx">
       <DependentUpon>ProductFormcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\PurchaseAndSalesForm.resx">
+      <DependentUpon>PurchaseAndSalesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\USers.resx">
       <DependentUpon>USers.cs</DependentUpon>

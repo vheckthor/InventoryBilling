@@ -107,8 +107,8 @@ namespace InventoryAndBillingSystem.UI
                 var userStored = Mapper.Map<User>(users);
 
                 db.Users.Add(userStored);
-                await db.SaveChangesAsync();
-                tracker = true;
+                
+                 tracker = await db.SaveChangesAsync()>0;
             }
 
             if (tracker)

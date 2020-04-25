@@ -49,6 +49,8 @@
             this.CategorycomboBox = new System.Windows.Forms.ComboBox();
             this.RateBox = new System.Windows.Forms.TextBox();
             this.ratelbl = new System.Windows.Forms.Label();
+            this.quantitybox = new System.Windows.Forms.TextBox();
+            this.quantitylbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productdataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,6 +66,7 @@
             this.productdataGridView.RowTemplate.Height = 24;
             this.productdataGridView.Size = new System.Drawing.Size(523, 357);
             this.productdataGridView.TabIndex = 26;
+            this.productdataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.productdataGridView_RowHeaderMouseClick);
             // 
             // searchbox
             // 
@@ -72,6 +75,7 @@
             this.searchbox.Name = "searchbox";
             this.searchbox.Size = new System.Drawing.Size(347, 31);
             this.searchbox.TabIndex = 25;
+            this.searchbox.TextChanged += new System.EventHandler(this.searchbox_TextChanged);
             // 
             // searchlbl
             // 
@@ -96,6 +100,7 @@
             this.deletebutton.TabIndex = 23;
             this.deletebutton.Text = "DELETE";
             this.deletebutton.UseVisualStyleBackColor = false;
+            this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
             // 
             // updatebutton
             // 
@@ -110,6 +115,7 @@
             this.updatebutton.TabIndex = 22;
             this.updatebutton.Text = "UPDATE";
             this.updatebutton.UseVisualStyleBackColor = false;
+            this.updatebutton.Click += new System.EventHandler(this.updatebutton_Click);
             // 
             // Addbutton
             // 
@@ -124,6 +130,7 @@
             this.Addbutton.TabIndex = 21;
             this.Addbutton.Text = "ADD";
             this.Addbutton.UseVisualStyleBackColor = false;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // productIDbox
             // 
@@ -146,7 +153,7 @@
             // 
             // descriptionbox
             // 
-            this.descriptionbox.Location = new System.Drawing.Point(204, 302);
+            this.descriptionbox.Location = new System.Drawing.Point(204, 338);
             this.descriptionbox.Multiline = true;
             this.descriptionbox.Name = "descriptionbox";
             this.descriptionbox.Size = new System.Drawing.Size(218, 79);
@@ -164,7 +171,7 @@
             // 
             this.descriptionlbl.AutoSize = true;
             this.descriptionlbl.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionlbl.Location = new System.Drawing.Point(23, 302);
+            this.descriptionlbl.Location = new System.Drawing.Point(23, 338);
             this.descriptionlbl.Name = "descriptionlbl";
             this.descriptionlbl.Size = new System.Drawing.Size(114, 26);
             this.descriptionlbl.TabIndex = 16;
@@ -248,7 +255,7 @@
             // RateBox
             // 
             this.RateBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RateBox.Location = new System.Drawing.Point(204, 419);
+            this.RateBox.Location = new System.Drawing.Point(204, 455);
             this.RateBox.Name = "RateBox";
             this.RateBox.Size = new System.Drawing.Size(218, 30);
             this.RateBox.TabIndex = 31;
@@ -257,12 +264,30 @@
             // 
             this.ratelbl.AutoSize = true;
             this.ratelbl.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ratelbl.Location = new System.Drawing.Point(23, 419);
+            this.ratelbl.Location = new System.Drawing.Point(23, 455);
             this.ratelbl.Name = "ratelbl";
             this.ratelbl.Size = new System.Drawing.Size(54, 26);
             this.ratelbl.TabIndex = 30;
             this.ratelbl.Text = "Rate";
             this.ratelbl.Click += new System.EventHandler(this.ratelbl_Click);
+            // 
+            // quantitybox
+            // 
+            this.quantitybox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantitybox.Location = new System.Drawing.Point(207, 288);
+            this.quantitybox.Name = "quantitybox";
+            this.quantitybox.Size = new System.Drawing.Size(218, 30);
+            this.quantitybox.TabIndex = 33;
+            // 
+            // quantitylbl
+            // 
+            this.quantitylbl.AutoSize = true;
+            this.quantitylbl.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantitylbl.Location = new System.Drawing.Point(26, 288);
+            this.quantitylbl.Name = "quantitylbl";
+            this.quantitylbl.Size = new System.Drawing.Size(91, 26);
+            this.quantitylbl.TabIndex = 32;
+            this.quantitylbl.Text = "Quantity";
             // 
             // ProductFormcs
             // 
@@ -270,6 +295,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(1030, 594);
+            this.Controls.Add(this.quantitybox);
+            this.Controls.Add(this.quantitylbl);
             this.Controls.Add(this.RateBox);
             this.Controls.Add(this.ratelbl);
             this.Controls.Add(this.CategorycomboBox);
@@ -289,6 +316,9 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ProductFormcs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.ProductFormcs_Load);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ProductFormcs_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.productdataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -321,5 +351,7 @@
         private System.Windows.Forms.ComboBox CategorycomboBox;
         private System.Windows.Forms.TextBox RateBox;
         private System.Windows.Forms.Label ratelbl;
+        private System.Windows.Forms.TextBox quantitybox;
+        private System.Windows.Forms.Label quantitylbl;
     }
 }

@@ -117,25 +117,29 @@
             // 
             // Titlebox
             // 
+            this.Titlebox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titlebox.Location = new System.Drawing.Point(204, 147);
             this.Titlebox.Name = "Titlebox";
-            this.Titlebox.Size = new System.Drawing.Size(218, 22);
+            this.Titlebox.Size = new System.Drawing.Size(218, 30);
             this.Titlebox.TabIndex = 4;
             // 
             // descriptionbox
             // 
+            this.descriptionbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.descriptionbox.Location = new System.Drawing.Point(204, 204);
             this.descriptionbox.Multiline = true;
             this.descriptionbox.Name = "descriptionbox";
             this.descriptionbox.Size = new System.Drawing.Size(218, 79);
             this.descriptionbox.TabIndex = 5;
+            this.descriptionbox.TextChanged += new System.EventHandler(this.descriptionbox_TextChanged);
             // 
             // categoryidbox
             // 
+            this.categoryidbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryidbox.Location = new System.Drawing.Point(204, 82);
             this.categoryidbox.Name = "categoryidbox";
             this.categoryidbox.ReadOnly = true;
-            this.categoryidbox.Size = new System.Drawing.Size(218, 22);
+            this.categoryidbox.Size = new System.Drawing.Size(218, 30);
             this.categoryidbox.TabIndex = 7;
             // 
             // Categorylbl
@@ -205,6 +209,7 @@
             // 
             // searchbox
             // 
+            this.searchbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchbox.Location = new System.Drawing.Point(559, 59);
             this.searchbox.Multiline = true;
             this.searchbox.Name = "searchbox";

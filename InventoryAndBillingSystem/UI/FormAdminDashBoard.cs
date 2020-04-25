@@ -71,5 +71,14 @@ namespace InventoryAndBillingSystem
             };
             product.Show();
         }
+
+        private void dealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DealerandCustomerForm dealer = new DealerandCustomerForm
+            {
+                UserID = userId
+            };
+            dealer.Show();
+        }
     }
 }

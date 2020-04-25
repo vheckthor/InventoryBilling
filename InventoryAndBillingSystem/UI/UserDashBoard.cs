@@ -36,5 +36,17 @@ namespace InventoryAndBillingSystem
             login.Show();
 
         }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
+            openPurchaseAndSalesForm.Show();
+        }
+
+        private void salesFormsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
+            openPurchaseAndSalesForm.Show();
+        }
     }
 }

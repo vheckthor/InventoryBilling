@@ -173,13 +173,11 @@ namespace InventoryAndBillingSystem.UI
                     descriptionbox.Clear();
                     categoryidbox.Clear();
                     //code to refresh the data table
-                    string searcher = "";
 
-                    var found = from x in db.Categories
-                        where x.Title.Contains(searcher) || x.Description.Contains(searcher)
-                        select x;
+                    var found = db.Categories.ToList();
+                        
 
-                    categorydataGridView.DataSource = found.ToList().ToDataTable();
+                    categorydataGridView.DataSource = found.ToDataTable();
                 }
             }
         }
@@ -221,6 +219,11 @@ namespace InventoryAndBillingSystem.UI
                     categorydataGridView.DataSource = found.ToList().ToDataTable();
                 }
             }
+        }
+
+        private void descriptionbox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
