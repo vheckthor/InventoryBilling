@@ -40,17 +40,25 @@ namespace InventoryAndBillingSystem
         }
 
         private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {    
+            clickedValue = "purchase";
             PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
             openPurchaseAndSalesForm.Show();
-            clickedValue = "purchase";
+
         }
 
         private void salesFormsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        {         
+            clickedValue = "sales";
             PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
             openPurchaseAndSalesForm.Show();
-            clickedValue = "sales";
+
+        }
+
+        private void dealerAndCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //DealerandCustomerForm dealerform = new DealerandCustomerForm();
+            //dealerform.Show();
         }
     }
 }

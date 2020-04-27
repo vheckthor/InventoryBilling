@@ -83,6 +83,7 @@
             this.dealerAndCustomerToolStripMenuItem.Name = "dealerAndCustomerToolStripMenuItem";
             this.dealerAndCustomerToolStripMenuItem.Size = new System.Drawing.Size(187, 30);
             this.dealerAndCustomerToolStripMenuItem.Text = "Dealer and Customer";
+            this.dealerAndCustomerToolStripMenuItem.Click += new System.EventHandler(this.dealerAndCustomerToolStripMenuItem_Click);
             // 
             // labelBilling
             // 
