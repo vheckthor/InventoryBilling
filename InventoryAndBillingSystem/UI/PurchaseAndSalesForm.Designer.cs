@@ -48,20 +48,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.productRate = new System.Windows.Forms.TextBox();
             this.ratelbl = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.productQuantity = new System.Windows.Forms.TextBox();
             this.Qty = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.productInventory = new System.Windows.Forms.TextBox();
             this.inventorylbl = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.productName = new System.Windows.Forms.TextBox();
             this.namelbl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.productSearchBpx = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.productdetailshead = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.addedProduct = new System.Windows.Forms.Label();
-            this.addedProductdataGridView = new System.Windows.Forms.DataGridView();
+            this.productadded = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.savebtn = new System.Windows.Forms.Button();
             this.returnamountbox = new System.Windows.Forms.TextBox();
@@ -77,12 +77,13 @@
             this.discount = new System.Windows.Forms.Label();
             this.subtotallbl = new System.Windows.Forms.Label();
             this.calculateddetails = new System.Windows.Forms.Label();
+            this.clearTable = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelboxDealerandCustomer.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedProductdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productadded)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -252,15 +253,15 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.addButton);
-            this.panel2.Controls.Add(this.textBox5);
+            this.panel2.Controls.Add(this.productRate);
             this.panel2.Controls.Add(this.ratelbl);
-            this.panel2.Controls.Add(this.textBox4);
+            this.panel2.Controls.Add(this.productQuantity);
             this.panel2.Controls.Add(this.Qty);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.productInventory);
             this.panel2.Controls.Add(this.inventorylbl);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.productName);
             this.panel2.Controls.Add(this.namelbl);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.productSearchBpx);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.productdetailshead);
             this.panel2.Location = new System.Drawing.Point(13, 237);
@@ -273,6 +274,7 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.LimeGreen;
             this.addButton.CausesValidation = false;
+            this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Segoe UI Black", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addButton.ForeColor = System.Drawing.Color.SeaShell;
@@ -282,13 +284,14 @@
             this.addButton.TabIndex = 11;
             this.addButton.Text = "ADD";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // textBox5
+            // productRate
             // 
-            this.textBox5.Location = new System.Drawing.Point(520, 58);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(169, 30);
-            this.textBox5.TabIndex = 10;
+            this.productRate.Location = new System.Drawing.Point(520, 58);
+            this.productRate.Name = "productRate";
+            this.productRate.Size = new System.Drawing.Size(169, 30);
+            this.productRate.TabIndex = 10;
             // 
             // ratelbl
             // 
@@ -299,12 +302,12 @@
             this.ratelbl.TabIndex = 9;
             this.ratelbl.Text = "Rate";
             // 
-            // textBox4
+            // productQuantity
             // 
-            this.textBox4.Location = new System.Drawing.Point(1032, 60);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(163, 30);
-            this.textBox4.TabIndex = 8;
+            this.productQuantity.Location = new System.Drawing.Point(1032, 60);
+            this.productQuantity.Name = "productQuantity";
+            this.productQuantity.Size = new System.Drawing.Size(163, 30);
+            this.productQuantity.TabIndex = 8;
             // 
             // Qty
             // 
@@ -315,12 +318,12 @@
             this.Qty.TabIndex = 7;
             this.Qty.Text = "Qty";
             // 
-            // textBox3
+            // productInventory
             // 
-            this.textBox3.Location = new System.Drawing.Point(798, 60);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(169, 30);
-            this.textBox3.TabIndex = 6;
+            this.productInventory.Location = new System.Drawing.Point(798, 60);
+            this.productInventory.Name = "productInventory";
+            this.productInventory.Size = new System.Drawing.Size(169, 30);
+            this.productInventory.TabIndex = 6;
             // 
             // inventorylbl
             // 
@@ -331,12 +334,12 @@
             this.inventorylbl.TabIndex = 5;
             this.inventorylbl.Text = "Inventory";
             // 
-            // textBox2
+            // productName
             // 
-            this.textBox2.Location = new System.Drawing.Point(308, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 30);
-            this.textBox2.TabIndex = 4;
+            this.productName.Location = new System.Drawing.Point(308, 60);
+            this.productName.Name = "productName";
+            this.productName.Size = new System.Drawing.Size(146, 30);
+            this.productName.TabIndex = 4;
             // 
             // namelbl
             // 
@@ -347,12 +350,13 @@
             this.namelbl.TabIndex = 3;
             this.namelbl.Text = "Name";
             // 
-            // textBox1
+            // productSearchBpx
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 30);
-            this.textBox1.TabIndex = 2;
+            this.productSearchBpx.Location = new System.Drawing.Point(105, 60);
+            this.productSearchBpx.Name = "productSearchBpx";
+            this.productSearchBpx.Size = new System.Drawing.Size(125, 30);
+            this.productSearchBpx.TabIndex = 2;
+            this.productSearchBpx.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label3
             // 
@@ -376,8 +380,9 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.clearTable);
             this.panel3.Controls.Add(this.addedProduct);
-            this.panel3.Controls.Add(this.addedProductdataGridView);
+            this.panel3.Controls.Add(this.productadded);
             this.panel3.Location = new System.Drawing.Point(13, 363);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(689, 438);
@@ -393,15 +398,15 @@
             this.addedProduct.TabIndex = 1;
             this.addedProduct.Text = "Added Products";
             // 
-            // addedProductdataGridView
+            // productadded
             // 
-            this.addedProductdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.addedProductdataGridView.Location = new System.Drawing.Point(18, 47);
-            this.addedProductdataGridView.Name = "addedProductdataGridView";
-            this.addedProductdataGridView.RowHeadersWidth = 51;
-            this.addedProductdataGridView.RowTemplate.Height = 24;
-            this.addedProductdataGridView.Size = new System.Drawing.Size(655, 381);
-            this.addedProductdataGridView.TabIndex = 0;
+            this.productadded.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.productadded.Location = new System.Drawing.Point(18, 47);
+            this.productadded.Name = "productadded";
+            this.productadded.RowHeadersWidth = 51;
+            this.productadded.RowTemplate.Height = 24;
+            this.productadded.Size = new System.Drawing.Size(655, 381);
+            this.productadded.TabIndex = 0;
             // 
             // panel4
             // 
@@ -460,6 +465,7 @@
             this.grandtotalbox.ReadOnly = true;
             this.grandtotalbox.Size = new System.Drawing.Size(479, 30);
             this.grandtotalbox.TabIndex = 12;
+            this.grandtotalbox.Text = "0.00";
             // 
             // vatbox
             // 
@@ -467,6 +473,8 @@
             this.vatbox.Name = "vatbox";
             this.vatbox.Size = new System.Drawing.Size(479, 30);
             this.vatbox.TabIndex = 11;
+            this.vatbox.Text = "0.00";
+            this.vatbox.TextChanged += new System.EventHandler(this.vatbox_TextChanged);
             // 
             // discountbox
             // 
@@ -474,6 +482,8 @@
             this.discountbox.Name = "discountbox";
             this.discountbox.Size = new System.Drawing.Size(479, 30);
             this.discountbox.TabIndex = 10;
+            this.discountbox.Text = "0.00";
+            this.discountbox.TextChanged += new System.EventHandler(this.discountbox_TextChanged);
             // 
             // subtotalbox
             // 
@@ -482,6 +492,7 @@
             this.subtotalbox.ReadOnly = true;
             this.subtotalbox.Size = new System.Drawing.Size(479, 30);
             this.subtotalbox.TabIndex = 9;
+            this.subtotalbox.Text = "0.00";
             // 
             // returnAmount
             // 
@@ -547,6 +558,21 @@
             this.calculateddetails.TabIndex = 2;
             this.calculateddetails.Text = "Calculated Details";
             // 
+            // clearTable
+            // 
+            this.clearTable.BackColor = System.Drawing.Color.OrangeRed;
+            this.clearTable.FlatAppearance.BorderSize = 0;
+            this.clearTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clearTable.Location = new System.Drawing.Point(564, 3);
+            this.clearTable.Name = "clearTable";
+            this.clearTable.Size = new System.Drawing.Size(109, 35);
+            this.clearTable.TabIndex = 44;
+            this.clearTable.TabStop = false;
+            this.clearTable.Text = "Clear";
+            this.clearTable.UseVisualStyleBackColor = false;
+            this.clearTable.Click += new System.EventHandler(this.clearTable_Click);
+            // 
             // PurchaseAndSalesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -575,7 +601,7 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addedProductdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productadded)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -604,19 +630,19 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label productdetailshead;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox productRate;
         private System.Windows.Forms.Label ratelbl;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox productQuantity;
         private System.Windows.Forms.Label Qty;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox productInventory;
         private System.Windows.Forms.Label inventorylbl;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox productName;
         private System.Windows.Forms.Label namelbl;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox productSearchBpx;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label addedProduct;
-        private System.Windows.Forms.DataGridView addedProductdataGridView;
+        private System.Windows.Forms.DataGridView productadded;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button savebtn;
         private System.Windows.Forms.TextBox returnamountbox;
@@ -632,5 +658,6 @@
         private System.Windows.Forms.Label discount;
         private System.Windows.Forms.Label subtotallbl;
         private System.Windows.Forms.Label calculateddetails;
+        private System.Windows.Forms.Button clearTable;
     }
 }

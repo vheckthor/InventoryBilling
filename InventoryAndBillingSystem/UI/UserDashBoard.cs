@@ -52,6 +52,7 @@ namespace InventoryAndBillingSystem
             clickedValue = "sales";
             PurchaseAndSalesForm openPurchaseAndSalesForm = new PurchaseAndSalesForm();
             openPurchaseAndSalesForm.Show();
+           var grow = new Guid();
 
         }
 
