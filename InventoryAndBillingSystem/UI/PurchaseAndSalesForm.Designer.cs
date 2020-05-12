@@ -60,6 +60,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.productdetailshead = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.clearTable = new System.Windows.Forms.Button();
             this.addedProduct = new System.Windows.Forms.Label();
             this.productadded = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -77,7 +78,6 @@
             this.discount = new System.Windows.Forms.Label();
             this.subtotallbl = new System.Windows.Forms.Label();
             this.calculateddetails = new System.Windows.Forms.Label();
-            this.clearTable = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelboxDealerandCustomer.SuspendLayout();
@@ -119,6 +119,7 @@
             this.purchasesalesLabel.Size = new System.Drawing.Size(227, 29);
             this.purchasesalesLabel.TabIndex = 1;
             this.purchasesalesLabel.Text = "Purchase and Sales";
+            this.purchasesalesLabel.Click += new System.EventHandler(this.purchasesalesLabel_Click);
             // 
             // panelboxDealerandCustomer
             // 
@@ -388,6 +389,21 @@
             this.panel3.Size = new System.Drawing.Size(689, 438);
             this.panel3.TabIndex = 42;
             // 
+            // clearTable
+            // 
+            this.clearTable.BackColor = System.Drawing.Color.OrangeRed;
+            this.clearTable.FlatAppearance.BorderSize = 0;
+            this.clearTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.clearTable.Location = new System.Drawing.Point(564, 3);
+            this.clearTable.Name = "clearTable";
+            this.clearTable.Size = new System.Drawing.Size(109, 35);
+            this.clearTable.TabIndex = 44;
+            this.clearTable.TabStop = false;
+            this.clearTable.Text = "Clear";
+            this.clearTable.UseVisualStyleBackColor = false;
+            this.clearTable.Click += new System.EventHandler(this.clearTable_Click);
+            // 
             // addedProduct
             // 
             this.addedProduct.AutoSize = true;
@@ -442,6 +458,7 @@
             this.savebtn.TabIndex = 15;
             this.savebtn.Text = "SAVE";
             this.savebtn.UseVisualStyleBackColor = false;
+            this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
             // 
             // returnamountbox
             // 
@@ -457,6 +474,8 @@
             this.paidamountbox.Name = "paidamountbox";
             this.paidamountbox.Size = new System.Drawing.Size(479, 30);
             this.paidamountbox.TabIndex = 13;
+            this.paidamountbox.Text = "0.00";
+            this.paidamountbox.TextChanged += new System.EventHandler(this.paidamountbox_TextChanged);
             // 
             // grandtotalbox
             // 
@@ -557,21 +576,6 @@
             this.calculateddetails.Size = new System.Drawing.Size(225, 29);
             this.calculateddetails.TabIndex = 2;
             this.calculateddetails.Text = "Calculated Details";
-            // 
-            // clearTable
-            // 
-            this.clearTable.BackColor = System.Drawing.Color.OrangeRed;
-            this.clearTable.FlatAppearance.BorderSize = 0;
-            this.clearTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.clearTable.Location = new System.Drawing.Point(564, 3);
-            this.clearTable.Name = "clearTable";
-            this.clearTable.Size = new System.Drawing.Size(109, 35);
-            this.clearTable.TabIndex = 44;
-            this.clearTable.TabStop = false;
-            this.clearTable.Text = "Clear";
-            this.clearTable.UseVisualStyleBackColor = false;
-            this.clearTable.Click += new System.EventHandler(this.clearTable_Click);
             // 
             // PurchaseAndSalesForm
             // 

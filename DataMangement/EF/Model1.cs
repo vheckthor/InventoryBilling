@@ -14,6 +14,7 @@ namespace DataMangement.EF
 
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<DealCustomer> DealCustomers { get; set; }
+        public virtual DbSet<PaymentDetail> PaymentDetails { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
@@ -49,6 +50,14 @@ namespace DataMangement.EF
                 .Property(e => e.Address)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<PaymentDetail>()
+                .Property(e => e.AmountPaid)
+                .HasPrecision(19, 4);
+
+            modelBuilder.Entity<PaymentDetail>()
+                .Property(e => e.BalanceorChange)
+                .HasPrecision(19, 4);
+
             modelBuilder.Entity<Product>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -56,6 +65,11 @@ namespace DataMangement.EF
             modelBuilder.Entity<Product>()
                 .Property(e => e.Description)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Transaction>()
+                .HasMany(e => e.PaymentDetails)
+                .WithRequired(e => e.Transaction)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<User>()
                 .Property(e => e.FirstName)

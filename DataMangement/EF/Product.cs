@@ -13,6 +13,7 @@ namespace DataMangement.EF
         [StringLength(50)]
         public string Name { get; set; }
 
+        [StringLength(50)]
         public string Category { get; set; }
 
         [Column(TypeName = "text")]

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Data;
 
 namespace InventoryAndBillingSystem.BusinessLogic
 {
@@ -19,5 +20,7 @@ namespace InventoryAndBillingSystem.BusinessLogic
         public int? AddedBy { get; set; }
 
         public DateTime? TransactionDate { get; set; }
+       
+        //public DataTable DataTableFromTransaction { get; set; }
     }
 }
