@@ -104,5 +104,10 @@ namespace InventoryAndBillingSystem.UI
                 }
             }
         }
+
+        private void usertypecombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

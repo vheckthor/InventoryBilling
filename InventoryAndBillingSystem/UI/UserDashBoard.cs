@@ -61,5 +61,11 @@ namespace InventoryAndBillingSystem
             //DealerandCustomerForm dealerform = new DealerandCustomerForm();
             //dealerform.Show();
         }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InventoryForm inventoryForm = new InventoryForm();
+            inventoryForm.Show();
+        }
     }
 }

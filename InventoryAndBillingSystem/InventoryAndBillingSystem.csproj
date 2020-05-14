@@ -77,9 +77,15 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\CategoriesDTO.cs" />
     <Compile Include="BusinessLogic\DealCustomerDTO.cs" />
+    <Compile Include="BusinessLogic\DGVPrinter.cs" />
+    <Compile Include="BusinessLogic\InventoryDTO.cs" />
     <Compile Include="BusinessLogic\LoginFormDTO.cs" />
+    <Compile Include="BusinessLogic\LogManager.cs" />
+    <Compile Include="BusinessLogic\LogWriter.cs" />
     <Compile Include="BusinessLogic\PaymentDetailsDTO.cs" />
+    <Compile Include="BusinessLogic\Printer.cs" />
     <Compile Include="BusinessLogic\ProductDTO.cs" />
+    <Compile Include="BusinessLogic\TransactionDataDTO.cs" />
     <Compile Include="BusinessLogic\TransactionDetailDTO.cs" />
     <Compile Include="BusinessLogic\TransactionDTO.cs" />
     <Compile Include="BusinessLogic\UserDTO.cs" />
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="UI\DealerandCustomerForm.Designer.cs">
       <DependentUpon>DealerandCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\InventoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\InventoryForm.Designer.cs">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
@@ -113,6 +125,12 @@
     </Compile>
     <Compile Include="UI\PurchaseAndSalesForm.Designer.cs">
       <DependentUpon>PurchaseAndSalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TransactionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\TransactionForm.Designer.cs">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\USers.cs">
       <SubType>Form</SubType>
@@ -140,6 +158,9 @@
     <EmbeddedResource Include="UI\DealerandCustomerForm.resx">
       <DependentUpon>DealerandCustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\InventoryForm.resx">
+      <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PurchaseAndSalesForm.resx">
       <DependentUpon>PurchaseAndSalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\TransactionForm.resx">
+      <DependentUpon>TransactionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\USers.resx">
       <DependentUpon>USers.cs</DependentUpon>

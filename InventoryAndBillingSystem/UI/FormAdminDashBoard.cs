@@ -80,5 +80,18 @@ namespace InventoryAndBillingSystem
             };
             dealer.Show();
         }
+
+        private void transactionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TransactionForm transaction = new TransactionForm();
+            transaction.Show();
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InventoryForm formInventoryForm = new InventoryForm();
+            
+            formInventoryForm.Show();
+        }
     }
 }

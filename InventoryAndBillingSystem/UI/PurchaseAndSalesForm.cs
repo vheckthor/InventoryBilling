@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -157,6 +158,7 @@ namespace InventoryAndBillingSystem.UI
                 if (found != null)
                 {
                     productName.Text = found.Name;
+                    productInventory.Text = found.Quantity.ToString();
                     productRate.Text = found.Rate.ToString();
 
                 }
@@ -173,6 +175,8 @@ namespace InventoryAndBillingSystem.UI
             discountbox.Text = "0.00";
             vatbox.Text = "0.00";
             grandtotalbox.Text = "0.00";
+            paidamountbox.Text = "0.00";
+            returnamountbox.Text = "";
             tracker = false;
 
 
@@ -273,9 +277,7 @@ namespace InventoryAndBillingSystem.UI
             { 
                 transactionVales.AddedBy = db.Users.FirstOrDefault(
                                             x => x.UserName == user.currentUser).id;
-                productIdentifier = db.Products.FirstOrDefault(
-                                            x => x.Name == productName.Text).id;
-
+                
 
             }
 
@@ -283,12 +285,21 @@ namespace InventoryAndBillingSystem.UI
 
             var payments = new PaymentDetailsDTO();
             var saved = false;
+            var transactionType = purchasesalesLabel.Text;
+
+
+
             using (var db = new Model1())
             {
                 db.Transactions.Add(mapped);
+
                 var transcationdetailsVales = new TransactionDetailDTO();
                 for(int i=0; i< dataForTable.Rows.Count; i++)
                 {
+                    var name = dataForTable.Rows[i][1].ToString();
+                    productIdentifier = db.Products.FirstOrDefault(
+                        x => x.Name == name).id;
+
                     transcationdetailsVales.ProductId = productIdentifier;
                     transcationdetailsVales.AddedDate=DateTime.Now;
                     transcationdetailsVales.DealCustomerId = CustomerId;
@@ -298,6 +309,20 @@ namespace InventoryAndBillingSystem.UI
 
                     var mapping = Mapper.Map<TransactionDetail>(transcationdetailsVales);
                     db.TransactionDetails.Add(mapping);
+
+
+                    var answer = db.Products.FirstOrDefault(x => x.id == productIdentifier);
+                    if (transactionType.ToLower() == "sales")
+                    {
+                        answer.Quantity = answer.Quantity - transcationdetailsVales.Quantity;
+                        db.Products.AddOrUpdate(answer);
+                    }
+                    else if(transactionType.ToLower()=="purchase")
+                    {
+                        answer.Quantity = answer.Quantity + transcationdetailsVales.Quantity;
+                        db.Products.AddOrUpdate(answer);
+                    }
+
                 }
 
                 var saving =db.SaveChanges()>0;
@@ -320,22 +345,66 @@ namespace InventoryAndBillingSystem.UI
             if (saved)
             {
                 MessageBox.Show("Transaction saved successfully");
+                //printing the transaction.
+                PrintTransaction();
             }
             else
             {
                 MessageBox.Show("Error saving transactions");
             }
-            
+            clearTable_Click(sender,e);
+            cleaner();
+
+        }
+        /// <summary>
+        /// This method can be moved to its own class and cofigured that the values like company name email, phone number
+        /// can be created from admin dash board
+        /// </summary>
+        private void PrintTransaction()
+        {
+            var printRecord = new DGVPrinter();
+            printRecord.Title = "\r\n\r\n Better Store Nigeria Limited";
+            printRecord.SubTitle = "\r\n No 32 Obange street Lekki Lagos \r\n 08135466998\r\n\r\n" 
+                                   + "Discount: " + discountbox.Text + "% \r\n" + "VAT: " + vatbox.Text + "% \r\n"
+                                   + "Grand Total: " + decimal.Parse(grandtotalbox.Text).ToString("C") + "\r\n"
+                                   + "Paid Amount: " + decimal.Parse(paidamountbox.Text).ToString("C")
+                                   + "\r\n"
+                                   + "Return Change: " + decimal.Parse(returnamountbox.Text).ToString("C")
+                                   + "\r\n\r\r\n";
+            printRecord.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printRecord.PageNumbers = true;
+            printRecord.PageNumberInHeader = false;
+            printRecord.PorportionalColumns = true;
+            printRecord.HeaderCellAlignment = StringAlignment.Near;
+            printRecord.Footer = "Thank you for doing business with us.";
+            printRecord.FooterSpacing = 250;
+
+            printRecord.PrintPreviewDataGridView(productadded);
+           // printRecord.PrintDataGridView(productadded);
         }
 
         private void purchasesalesLabel_Click(object sender, EventArgs e)
         {
-            purchasesalesLabel.ForeColor= Color.DeepSkyBlue;
-            
+            var randomColor = new Random();
+            var randomize1 = randomColor.Next(0, 255);
+            var randomize2 = randomColor.Next(0, 255);
+            var randomize3 = randomColor.Next(0, 255);
+            var genColor=Color.FromArgb(randomize1,randomize2,randomize3);
+            purchasesalesLabel.ForeColor = genColor;
+
+
+
         }
 
         private void paidamountbox_TextChanged(object sender, EventArgs e)
         {
+
+
+            if (string.IsNullOrWhiteSpace(paidamountbox.Text))
+            {
+                paidamountbox.Text = "0.00";
+
+            }
             var converter = decimal.TryParse(paidamountbox.Text,out decimal result);
             if (!converter || (result<0))
             {
@@ -344,6 +413,47 @@ namespace InventoryAndBillingSystem.UI
             var amountPaid = result;
 
             returnamountbox.Text = (amountPaid - decimal.Parse(grandtotalbox.Text)).ToString("##.000");
+        }
+
+
+        private void cleaner()
+        {
+            productQuantity.Clear();
+            productName.Clear();
+            productRate.Clear();
+            productInventory.Clear();
+            productSearchBpx.Clear();
+            nameBox.Clear();
+            emailBox.Clear();
+            contactBox.Clear();
+            addressBox.Clear();
+            searchBox.Clear();
+
+        }
+
+        private void productQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if (productQuantity.Text == "")
+            {
+                productQuantity.Text = "";
+                return;
+            }
+            var converter = decimal.TryParse(productQuantity.Text,out decimal quantity);
+            if (!converter)
+            {
+                MessageBox.Show("Please enter a valid quantity");
+                return;
+            }
+
+            var transactionType = purchasesalesLabel;
+            if (transactionType.Text == "sales")
+            {
+                if (decimal.Parse(productInventory.Text) < quantity)
+                {
+                    MessageBox.Show("Quantity cannot be greater than the amount in stock");
+                    productQuantity.Clear();
+                }
+            }
         }
     }
 }

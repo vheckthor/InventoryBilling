@@ -309,6 +309,7 @@
             this.productQuantity.Name = "productQuantity";
             this.productQuantity.Size = new System.Drawing.Size(163, 30);
             this.productQuantity.TabIndex = 8;
+            this.productQuantity.TextChanged += new System.EventHandler(this.productQuantity_TextChanged);
             // 
             // Qty
             // 

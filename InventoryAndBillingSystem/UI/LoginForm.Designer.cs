@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.loginbutton = new System.Windows.Forms.Button();
+            this.usertypecombobox = new System.Windows.Forms.ComboBox();
+            this.passwordtextbox = new System.Windows.Forms.TextBox();
+            this.usernametextbox = new System.Windows.Forms.TextBox();
             this.usertypelbl = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.usernamelbl = new System.Windows.Forms.Label();
             this.login = new System.Windows.Forms.Label();
-            this.usernametextbox = new System.Windows.Forms.TextBox();
-            this.passwordtextbox = new System.Windows.Forms.TextBox();
-            this.usertypecombobox = new System.Windows.Forms.ComboBox();
-            this.loginbutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,10 +51,62 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.usernamelbl);
             this.panel1.Controls.Add(this.login);
-            this.panel1.Location = new System.Drawing.Point(39, 54);
+            this.panel1.Location = new System.Drawing.Point(69, 62);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 655);
+            this.panel1.Size = new System.Drawing.Size(532, 655);
             this.panel1.TabIndex = 0;
+            // 
+            // loginbutton
+            // 
+            this.loginbutton.BackColor = System.Drawing.Color.Salmon;
+            this.loginbutton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.loginbutton.FlatAppearance.BorderSize = 0;
+            this.loginbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginbutton.Location = new System.Drawing.Point(153, 482);
+            this.loginbutton.Name = "loginbutton";
+            this.loginbutton.Size = new System.Drawing.Size(164, 57);
+            this.loginbutton.TabIndex = 8;
+            this.loginbutton.Text = "LOGIN";
+            this.loginbutton.UseVisualStyleBackColor = false;
+            this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
+            // 
+            // usertypecombobox
+            // 
+            this.usertypecombobox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.usertypecombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usertypecombobox.FormattingEnabled = true;
+            this.usertypecombobox.ItemHeight = 25;
+            this.usertypecombobox.Items.AddRange(new object[] {
+            "Admin",
+            "Normal Users"});
+            this.usertypecombobox.Location = new System.Drawing.Point(57, 417);
+            this.usertypecombobox.Name = "usertypecombobox";
+            this.usertypecombobox.Size = new System.Drawing.Size(397, 33);
+            this.usertypecombobox.TabIndex = 7;
+            this.usertypecombobox.Text = "Choose user type";
+            this.usertypecombobox.SelectedIndexChanged += new System.EventHandler(this.usertypecombobox_SelectedIndexChanged);
+            // 
+            // passwordtextbox
+            // 
+            this.passwordtextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordtextbox.Location = new System.Drawing.Point(57, 274);
+            this.passwordtextbox.Multiline = true;
+            this.passwordtextbox.Name = "passwordtextbox";
+            this.passwordtextbox.PasswordChar = '*';
+            this.passwordtextbox.Size = new System.Drawing.Size(397, 36);
+            this.passwordtextbox.TabIndex = 6;
+            this.passwordtextbox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // usernametextbox
+            // 
+            this.usernametextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernametextbox.Location = new System.Drawing.Point(57, 156);
+            this.usernametextbox.Multiline = true;
+            this.usernametextbox.Name = "usernametextbox";
+            this.usernametextbox.Size = new System.Drawing.Size(397, 34);
+            this.usernametextbox.TabIndex = 5;
+            this.usernametextbox.TextChanged += new System.EventHandler(this.usernametextbox_TextChanged);
             // 
             // usertypelbl
             // 
@@ -97,60 +149,14 @@
             this.login.TabIndex = 0;
             this.login.Text = "LOGIN";
             // 
-            // usernametextbox
-            // 
-            this.usernametextbox.Location = new System.Drawing.Point(57, 156);
-            this.usernametextbox.Multiline = true;
-            this.usernametextbox.Name = "usernametextbox";
-            this.usernametextbox.Size = new System.Drawing.Size(363, 32);
-            this.usernametextbox.TabIndex = 5;
-            this.usernametextbox.TextChanged += new System.EventHandler(this.usernametextbox_TextChanged);
-            // 
-            // passwordtextbox
-            // 
-            this.passwordtextbox.Location = new System.Drawing.Point(57, 274);
-            this.passwordtextbox.Multiline = true;
-            this.passwordtextbox.Name = "passwordtextbox";
-            this.passwordtextbox.PasswordChar = '*';
-            this.passwordtextbox.Size = new System.Drawing.Size(363, 36);
-            this.passwordtextbox.TabIndex = 6;
-            this.passwordtextbox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // usertypecombobox
-            // 
-            this.usertypecombobox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.usertypecombobox.FormattingEnabled = true;
-            this.usertypecombobox.Items.AddRange(new object[] {
-            "Admin",
-            "Normal Users"});
-            this.usertypecombobox.Location = new System.Drawing.Point(57, 417);
-            this.usertypecombobox.Name = "usertypecombobox";
-            this.usertypecombobox.Size = new System.Drawing.Size(363, 24);
-            this.usertypecombobox.TabIndex = 7;
-            this.usertypecombobox.Text = "Choose user type";
-            // 
-            // loginbutton
-            // 
-            this.loginbutton.BackColor = System.Drawing.Color.Salmon;
-            this.loginbutton.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.loginbutton.FlatAppearance.BorderSize = 0;
-            this.loginbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.loginbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginbutton.Location = new System.Drawing.Point(139, 480);
-            this.loginbutton.Name = "loginbutton";
-            this.loginbutton.Size = new System.Drawing.Size(164, 57);
-            this.loginbutton.TabIndex = 8;
-            this.loginbutton.Text = "LOGIN";
-            this.loginbutton.UseVisualStyleBackColor = false;
-            this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.ClientSize = new System.Drawing.Size(583, 751);
+            this.ClientSize = new System.Drawing.Size(665, 763);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
